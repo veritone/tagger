@@ -1,8 +1,14 @@
 git:
-  - dir: $GOPATH/src/github.com/veritone.com/aiware-task-manager
-    ref: 018c5628be676af3cd60bec9651277e3bca65380
+  - dir: $GOPATH/src/github.com/veritone/veritone-sample-app-react
+    ref: 1a590da78764a991ed90876f339c6bc6999792c2
     remote: upstream
-  - dir: $GOPATH/src/github.com/veritone.com/aiware-black
+    tag: 3.1.21
+  - dir: $GOPATH/src/github.com/veritone.com/veritone-sdk
 
 docker:
-  - from: redis:4.0.8-alpine
+  - from_image: redis
+    from_tag: 4.0.8-alpine
+    to_image: rms100watt/redis
+    to_tag: 4.0.8
+  - from_image: bash
+
