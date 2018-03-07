@@ -1,13 +1,13 @@
 git:
+  - dir: $GOPATH/src/github.com/veritone.com/veritone-sample-app-react
   - dir: $GOPATH/src/github.com/veritone.com/veritone-sdk
     ref: fc498f441485848f2c539ee66cd1f8983f842725
     remote: upstream
     tag: 1.3.2
-  - dir: $GOPATH/src/github.com/veritone.com/veritone-sample-app-react
 
 docker:
+  - from_image: veritone/logger
   - from_image: veritone/aiware
     from_tag: test
     to_image: veritone/aiware-test
     to_tag: 1.6.2
-  - from_image: veritone/logger
