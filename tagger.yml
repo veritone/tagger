@@ -1,0 +1,8 @@
+git:
+  - dir: $GOPATH/src/github.com/veritone.com/aiware-task-manager
+    ref: 018c5628be676af3cd60bec9651277e3bca65380
+    remote: upstream
+  - dir: $GOPATH/src/github.com/veritone.com/aiware-black
+
+docker:
+  - from: redis:4.0.8-alpine
