@@ -1,6 +1,55 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [],
+	"package": [
+		{
+			"checksumSHA1": "40vJyUB4ezQSn/NSadsKEOrudMc=",
+			"path": "github.com/inconshreveable/mousetrap",
+			"revision": "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75",
+			"revisionTime": "2014-10-17T20:07:13Z"
+		},
+		{
+			"checksumSHA1": "vdLUwBPAX/dtVsKYY8BnTUcyADg=",
+			"path": "github.com/sirupsen/logrus",
+			"revision": "f4ee69125072b22721efbe639bd0da9c9d19b8cc",
+			"revisionTime": "2018-02-28T22:01:33Z"
+		},
+		{
+			"checksumSHA1": "VNUkFQcdmHCkMDIcFtqlxsQQlls=",
+			"path": "github.com/spf13/cobra",
+			"revision": "c6c44e6fdcc30161c7f4480754da7230d01c06e3",
+			"revisionTime": "2018-03-01T18:15:57Z"
+		},
+		{
+			"checksumSHA1": "tfKmT8uovT9Ch2YyDJtti3egAB4=",
+			"path": "github.com/spf13/pflag",
+			"revision": "ee5fd03fd6acfd43e44aea0b4135958546ed8e73",
+			"revisionTime": "2018-02-20T14:32:36Z"
+		},
+		{
+			"checksumSHA1": "6U7dCaxxIMjf5V02iWgyAwppczw=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "85f98707c97e11569271e4d9b3d397e079c4f4d0",
+			"revisionTime": "2018-03-01T00:49:11Z"
+		},
+		{
+			"checksumSHA1": "hYsuWh8Zj6z+8rFsK7F7mABIR44=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "dd2ff4accc098aceecb86b36eaa7829b2a17b1c9",
+			"revisionTime": "2018-03-01T08:23:35Z"
+		},
+		{
+			"checksumSHA1": "eQq+ZoTWPjyizS9XalhZwfGjQao=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "dd2ff4accc098aceecb86b36eaa7829b2a17b1c9",
+			"revisionTime": "2018-03-01T08:23:35Z"
+		},
+		{
+			"checksumSHA1": "AnKBN2Q4AWaSNb0JyINBQbnpxGM=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "7f97868eec74b32b0982dd158a51a446d1da7eb5",
+			"revisionTime": "2018-02-23T19:12:37Z"
+		}
+	],
 	"rootPath": "github.com/veritone/tagger"
 }

@@ -1,1 +1,6 @@
 .DS_Store
+test.tagger.yml
+vendor/*
+!vendor/vendor.json
+tagger-*
+bin

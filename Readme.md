@@ -9,6 +9,7 @@ Tag Git/Github repos and Docker images all with the same value
 - [Install](#install)
 - [Usage](#usage)
 - [Defaults](#defaults)
+- [TODO](#todo)
 
 ## Install
 
@@ -99,3 +100,7 @@ git:
     to_image: bash
     tag: <CLI_TAG_VALUE>
 ```
+
+## TODO
+
+- [ ] Batch logging for better stdout logs
