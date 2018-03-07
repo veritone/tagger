@@ -87,6 +87,14 @@ Here is the explanation of commands:
 - `docker tag veritone/aiware:test veritone/aiware-test:1.6.2`
 - `docker push veritone/aiware-test:1.6.2`
 
+## Concurrency
+
+Tagger offers a configurable concurrency using the `-c` flag. If you wanted to run 5 concurrent tagging tasks, here is the command:
+
+```bash
+tagger 0.1.0 -c 5
+```
+
 ## Conclusion
 
 In some usecases you need to tag everything the same version and you don't have mature pipelines. Tagger can easily satisfy this need for you. 😊
