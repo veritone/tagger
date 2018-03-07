@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const taggerVersion = "1.0.0"
+const taggerVersion = "1.1.1"
 
 var (
 	logLevel  string
