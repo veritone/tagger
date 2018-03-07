@@ -11,3 +11,4 @@ docker:
     from_tag: test
     to_image: veritone/aiware-test
     to_tag: 1.6.2
+    pull: no

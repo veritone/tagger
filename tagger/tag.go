@@ -2,6 +2,7 @@ package tagger
 
 import (
 	"fmt"
+	"strings"
 	"sync"
 
 	log "github.com/sirupsen/logrus"
@@ -76,8 +77,12 @@ func handleGit(git Git) {
 }
 
 func handleDocker(docker Docker) {
-	cmd := fmt.Sprintf("docker pull %s:%s", docker.FromImage, docker.FromTag)
-	Exec(cmd)
+	var cmd string
+
+	if strings.ToLower(strings.TrimSpace(docker.Pull)) == DockerPullYes {
+		cmd = fmt.Sprintf("docker pull %s:%s", docker.FromImage, docker.FromTag)
+		Exec(cmd)
+	}
 
 	cmd = fmt.Sprintf("docker tag %s:%s %s:%s", docker.FromImage, docker.FromTag, docker.ToImage, docker.ToTag)
 	Exec(cmd)

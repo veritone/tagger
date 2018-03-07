@@ -64,6 +64,7 @@ docker:
     from_tag: test
     to_image: veritone/aiware-test
     to_tag: 1.6.2
+    pull: no
 ```
 
 Notice the tag value is overridden. When you run the tagger command:
@@ -83,7 +84,7 @@ Here is the explanation of commands:
 
 ### Docker
 
-- `docker pull veritone/aiware:test`
+- Does not docker pull; assumes you have it locally
 - `docker tag veritone/aiware:test veritone/aiware-test:1.6.2`
 - `docker push veritone/aiware-test:1.6.2`
 

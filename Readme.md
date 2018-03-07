@@ -83,6 +83,7 @@ git:
 | `from_tag` | `latest` |
 | `to_image` | Value from `from_image` |
 | `to_tag` | CLI Tag Value |
+| `pull` | `yes` |
 
 A `tagger.yml` configuration like:
 
@@ -94,11 +95,12 @@ docker:
 Will be filled in to look like:
 
 ```yml
-git:
+docker:
   - from_image: bash
     from_tag: latest
     to_image: bash
-    tag: <CLI_TAG_VALUE>
+    to_tag: <CLI_TAG_VALUE>
+    pull: yes
 ```
 
 ## TODO

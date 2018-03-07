@@ -17,6 +17,7 @@ var (
 	DefaultGitReference  = "master"
 	DefaultGitRemote     = "origin"
 	DefaultDockerFromTag = "latest"
+	DefaultDockerPull    = DockerPullYes
 )
 
 type Tagger struct {
@@ -102,6 +103,7 @@ func addDefaults(cfg Config, in Tagger) (out Tagger) {
 			FromTag:   DefaultDockerFromTag,
 			ToImage:   docker.FromImage,
 			ToTag:     cfg.GlobalTag,
+			Pull:      DefaultDockerPull,
 		}
 
 		if strings.TrimSpace(docker.FromTag) != "" {
@@ -114,6 +116,10 @@ func addDefaults(cfg Config, in Tagger) (out Tagger) {
 
 		if strings.TrimSpace(docker.ToTag) != "" {
 			outDocker.ToTag = docker.ToTag
+		}
+
+		if strings.TrimSpace(docker.Pull) != "" {
+			outDocker.Pull = docker.Pull
 		}
 
 		out.Dockers = append(out.Dockers, outDocker)
