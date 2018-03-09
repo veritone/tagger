@@ -66,27 +66,30 @@ func taggerConcurrent(ch chan Message) {
 }
 
 func handleGit(git Git) {
+	colorFunc := getColorFunc()
+
 	cmd := fmt.Sprintf("git checkout %s", git.Reference)
-	ExecDirectory(cmd, git.Directory)
+	ExecDirectory(cmd, colorFunc, git.Directory)
 
 	cmd = fmt.Sprintf("git tag %s", git.Tag)
-	ExecDirectory(cmd, git.Directory)
+	ExecDirectory(cmd, colorFunc, git.Directory)
 
 	cmd = fmt.Sprintf("git push %s %s", git.Remote, git.Tag)
-	ExecDirectory(cmd, git.Directory)
+	ExecDirectory(cmd, colorFunc, git.Directory)
 }
 
 func handleDocker(docker Docker) {
 	var cmd string
+	colorFunc := getColorFunc()
 
 	if strings.ToLower(strings.TrimSpace(docker.Pull)) == DockerPullYes {
 		cmd = fmt.Sprintf("docker pull %s:%s", docker.FromImage, docker.FromTag)
-		Exec(cmd)
+		Exec(cmd, colorFunc)
 	}
 
 	cmd = fmt.Sprintf("docker tag %s:%s %s:%s", docker.FromImage, docker.FromTag, docker.ToImage, docker.ToTag)
-	Exec(cmd)
+	Exec(cmd, colorFunc)
 
 	cmd = fmt.Sprintf("docker push %s:%s", docker.ToImage, docker.ToTag)
-	Exec(cmd)
+	Exec(cmd, colorFunc)
 }

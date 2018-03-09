@@ -6,37 +6,21 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-	"sync"
 	"syscall"
 
-	"github.com/fatih/color"
 	log "github.com/sirupsen/logrus"
 )
 
-var (
-	mut      = &sync.Mutex{}
-	colorInd = 0
-	colorMap = map[int]func(string, ...interface{}){
-		0: color.Blue,
-		1: color.Cyan,
-		2: color.Green,
-		3: color.Magenta,
-		4: color.Red,
-		5: color.White,
-		6: color.Yellow,
-	}
-)
-
-func ExecDirectory(commandStr string, directory string) (err error) {
+func ExecDirectory(commandStr string, colorFunc func(string, ...interface{}), directory string) (err error) {
 	if err := os.Chdir(directory); err != nil {
 		log.Errorf("Failed to cd %s: %s", directory, err)
 		return err
 	}
 
-	return Exec(commandStr)
+	return Exec(commandStr, colorFunc)
 }
 
-func Exec(commandStr string) (err error) {
+func Exec(commandStr string, colorFunc func(string, ...interface{})) (err error) {
 	if strings.TrimSpace(commandStr) == "" {
 		return errors.New("No command provided")
 	}
@@ -74,8 +58,6 @@ func Exec(commandStr string) (err error) {
 		return err
 	}
 
-	colorFunc := getColorFunc()
-
 	go handleReader(stdoutReader, false, colorFunc)
 	go handleReader(stderrReader, true, colorFunc)
 
@@ -104,12 +86,4 @@ func handleReader(reader *bufio.Reader, isStderr bool, colorFunc func(string, ..
 			colorFunc(str)
 		}
 	}
-}
-
-func getColorFunc() (colorFunc func(string, ...interface{})) {
-	mut.Lock()
-	colorFunc = colorMap[colorInd%len(colorMap)]
-	colorInd++
-	mut.Unlock()
-	return
 }
