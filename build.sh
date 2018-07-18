@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Copyright Veritone Corporation 2018. All rights reserved.
+# See LICENSE for more information.
 
 rm -rf bin &> /dev/null
 mkdir bin &> /dev/null
